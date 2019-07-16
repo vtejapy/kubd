@@ -25,13 +25,47 @@
 
 ***Use cases***:
  -  Temporary space
-
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: k8s.gcr.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+  volumes:
+  - name: cache-volume
+    emptyDir: {}
+```
 **hostPath**:
  - mounts a file or directory from the host node's filesystem into your pods
   -  remains even afer the pod is terminated
   -  similar to docker volume
   -  Host issues might cause problem to hostpath
-
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: k8s.gcr.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /test-pd
+      name: test-volume
+  volumes:
+  - name: test-volume
+    hostPath:
+      # directory location on host
+      path: /data
+      # this field is optional
+      type: Directory
+```
 **gcePersistentDisk**
 -  volumes mounts a google compute Engine (GCE) persistent Disk into pod
 -  volume data is persisted pods termination
@@ -40,3 +74,28 @@
  -  you must create a pd using gcloud or the GCE API or UI befor can do use it 
  - the nodes on which pods are running must be GCE vms
 - those VMs need to be in the same GCE project and zone as the PD
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: k8s.gcr.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /test-pd
+      name: test-volume
+  volumes:
+  - name: test-volume
+    # This GCE PD must already exist.
+    gcePersistentDisk:
+      pdName: my-data-disk
+      fsType: ext4
+```
+
+
+
+
+
+
