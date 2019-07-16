@@ -16,8 +16,10 @@
      - in this volume you have files
      - can be used for instance for dotenv files or your app can just read this file
  - use an external image to pull secrets(from a private image registry)
- helloworld-secrets.yml
- ```
+
+helloworld-secrets.yml
+
+```
 apiVersion: v1
 kind: Secret
 metadata:
