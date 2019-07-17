@@ -7,10 +7,10 @@
 
 - with a deployment object you can : 
 
- - create a deployment(eg: deploying an app)
- - update a deployment(eg: deploying a new version)
- - Do rolling updates (zero downtime deployments)
- - Roll back to a previous version
- - pause/resume a deployment(eg: roll-out to only a certain percentage)
+  - create a deployment(eg: deploying an app)
+  - update a deployment(eg: deploying a new version)
+  - Do rolling updates (zero downtime deployments)
+  - Roll back to a previous version
+  - pause/resume a deployment(eg: roll-out to only a certain percentage)
 
   <<exampl>>
