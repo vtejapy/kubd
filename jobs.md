@@ -294,7 +294,7 @@ spec:
 The only difference from the previous spec is that we omitted .spec.completions  field, added the .spec.parallelism  field and set its value to 3.
 
 Now, let’s open two terminal windows as in the previous example. In the first terminal, watch the pods:
-``
+```
 kubectl get pods -l app=primes -w
  ```
 Let’s save the spec in the job-prime-3.yaml  and create the job in the second terminal:
