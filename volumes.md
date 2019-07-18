@@ -70,6 +70,7 @@ spec:
 -  volumes mounts a google compute Engine (GCE) persistent Disk into pod
 -  volume data is persisted pods termination
 -  Read-Write only on one node and Read-Write on many nodes
+
 ***Restrications***:
  -  you must create a pd using gcloud or the GCE API or UI befor can do use it 
  - the nodes on which pods are running must be GCE vms
