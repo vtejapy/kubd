@@ -4,6 +4,8 @@
    - this is useful if you want to ensure that a certain pod is running on every single kubernetes node
 - when a node is added to the cluster , a new pod will be started automatically 
 - same when a node is removed. the pod wil not be resheduled on another node
+
+
 ***typical use cases***: 
    - Logging aggregators 
    - Monitoring
