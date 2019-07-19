@@ -11,3 +11,23 @@
    - Monitoring
    - Load Balancers/Reverse Proxies/Api Gateways
    - Running a daemon that only needs one instance per physical instance
+
+
+```
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: nginx-daemonset
+spec:
+  selector:
+    matchLabels:
+      demotype: nginx-daemonset-demo
+  template:
+    metadata:
+      labels:
+        demotype: nginx-daemonset-demo
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+```
