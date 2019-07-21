@@ -28,26 +28,26 @@ Kubernetes (K8s) is an open-source system for automating deployment, scaling, an
 
 # Architecure
 
---> kubernetes cluster is split into 2 parts
+- kubernetes cluster is split into 2 parts
 
-  -->control plane(master)
-  -->The (worker) nodes
+  - control plane(master)
+  - The (worker) nodes
 
-#componentes of control plane
---> The etcd distributed presistent storege
--->The ApI server
---> the scheduler
---> the controller manager
+### componentes of control plane
+- The etcd distributed presistent storege
+- The ApI server
+- the scheduler
+- the controller manager
 
 <<diagram1>>
 
 
 # components of The worker nodes
 
---> the kublet
---> the kubernetes service proxy (kube-proxy)
--->the container Runtime(Docker,rkt or others)
---->pod
+- the kublet
+- the kubernetes service proxy (kube-proxy)
+- the container Runtime(Docker,rkt or others)
+- pod
 
 kube-apiserver:
 -->Component on the master that exposes the Kubernetes API. It is the front-end for the Kubernetes control plane.
