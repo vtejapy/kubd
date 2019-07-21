@@ -33,7 +33,7 @@ Kubernetes (K8s) is an open-source system for automating deployment, scaling, an
   - control plane(master)
   - The (worker) nodes
 
-### componentes of control plane
+### componentes of control plane (Master)
 - The etcd distributed presistent storege
 - The ApI server
 - the scheduler
@@ -42,52 +42,52 @@ Kubernetes (K8s) is an open-source system for automating deployment, scaling, an
 <<diagram1>>
 
 
-# components of The worker nodes
+# components of The worker nodes (Node)
 
 - the kublet
 - the kubernetes service proxy (kube-proxy)
 - the container Runtime(Docker,rkt or others)
 - pod
 
-kube-apiserver:
--->Component on the master that exposes the Kubernetes API. It is the front-end for the Kubernetes control plane.
+### kube-apiserver:
+- Component on the master that exposes the Kubernetes API. It is the front-end for the Kubernetes control plane.
 
--->It is designed to scale horizontally – that is, it scales by deploying more instances. See Building High-Availability Clusters.
+- It is designed to scale horizontally – that is, it scales by deploying more instances. See Building High-Availability Clusters.
 
-etcd:
+### etcd:
 Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.
 
 If your Kubernetes cluster uses etcd as its backing store, make sure you have a back up plan for those data.
 
-kube-scheduler:
+### kube-scheduler:
 Component on the master that watches newly created pods that have no node assigned, and selects a node for them to run on.
 
 Factors taken into account for scheduling decisions include individual and collective resource requirements, hardware/software/policy constraints, affinity and anti-affinity specifications, data locality, inter-workload interference and deadlines.
 
-kube-controller-manager
+### kube-controller-manager
 Component on the master that runs controllers .
 
 Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.
 
-These controllers include:
+### These controllers include:
 
-Node Controller: Responsible for noticing and responding when nodes go down.
-Replication Controller: Responsible for maintaining the correct number of pods for every replication controller object in the system.
-Endpoints Controller: Populates the Endpoints object (that is, joins Services & Pods).
-Service Account & Token Controllers: Create default accounts and API access tokens for new namespaces.
-cloud-controller-manager
+***Node Controller***: Responsible for noticing and responding when nodes go down.
+***Replication Controller***: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+***Endpoints Controller***: Populates the Endpoints object (that is, joins Services & Pods).
+***Service Account & Token Controllers***: Create default accounts and API access tokens for new namespaces.
+***cloud-controller-manager***:
 cloud-controller-manager runs controllers that interact with the underlying cloud providers. The cloud-controller-manager binary is an alpha feature introduced in Kubernetes release 1.6.
 
 cloud-controller-manager runs cloud-provider-specific controller loops only. You must disable these controller loops in the kube-controller-manager. You can disable the controller loops by setting the --cloud-provider flag to external when starting the kube-controller-manager.
 
 cloud-controller-manager allows the cloud vendor’s code and the Kubernetes code to evolve independently of each other. In prior releases, the core Kubernetes code was dependent upon cloud-provider-specific code for functionality. In future releases, code specific to cloud vendors should be maintained by the cloud vendor themselves, and linked to cloud-controller-manager while running Kubernetes.
 
-The following controllers have cloud provider dependencies:
+### The following controllers have cloud provider dependencies:
 
-Node Controller: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
-Route Controller: For setting up routes in the underlying cloud infrastructure
-Service Controller: For creating, updating and deleting cloud provider load balancers
-Volume Controller: For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
+***Node Controller***: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+***Route Controller***: For setting up routes in the underlying cloud infrastructure
+***Service Controller***: For creating, updating and deleting cloud provider load balancers
+***Volume Controller***: For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
 Node Components
 Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment.
 
