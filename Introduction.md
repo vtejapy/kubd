@@ -72,9 +72,13 @@ Logically, each controller is a separate process, but to reduce complexity, they
 ### These controllers include:
 
 ***Node Controller***: Responsible for noticing and responding when nodes go down.
+
 ***Replication Controller***: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+
 ***Endpoints Controller***: Populates the Endpoints object (that is, joins Services & Pods).
+
 ***Service Account & Token Controllers***: Create default accounts and API access tokens for new namespaces.
+
 ***cloud-controller-manager***:
 cloud-controller-manager runs controllers that interact with the underlying cloud providers. The cloud-controller-manager binary is an alpha feature introduced in Kubernetes release 1.6.
 
