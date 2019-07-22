@@ -88,41 +88,40 @@ cloud-controller-manager allows the cloud vendor’s code and the Kubernetes cod
 ***Route Controller***: For setting up routes in the underlying cloud infrastructure
 ***Service Controller***: For creating, updating and deleting cloud provider load balancers
 ***Volume Controller***: For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
-Node Components
+
+## Node Components
 Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment.
 
-kubelet
+***kubelet***
 An agent that runs on each node in the cluster. It makes sure that containers are running in a pod.
-
 The kubelet takes a set of PodSpecs that are provided through various mechanisms and ensures that the containers described in those PodSpecs are running and healthy. The kubelet doesn’t manage containers which were not created by Kubernetes.
 
-kube-proxy
+***kube-proxy***
+
 kube-proxy is a network proxy that runs on each node in the cluster.
-
 It enables the Kubernetes service abstraction by maintaining network rules on the host and performing connection forwarding.
-
 kube-proxy is responsible for request forwarding. kube-proxy allows TCP and UDP stream forwarding or round robin TCP and UDP forwarding across a set of backend functions.
 
-Container Runtime
-The container runtime is the software that is responsible for running containers.
+***Container Runtime***
 
+The container runtime is the software that is responsible for running containers.
 Kubernetes supports several container runtimes: Docker, containerd, cri-o, rktlet and any implementation of the Kubernetes CRI (Container Runtime Interface).
 
-Addons
+### Addons
 Addons are pods and services that implement cluster features. The pods may be managed by Deployments, ReplicationControllers, and so on. Namespaced addon objects are created in the kube-system namespace.
 
 Selected addons are described below, for an extended list of available addons please see Addons.
 
-DNS
+***DNS***
 While the other addons are not strictly required, all Kubernetes clusters should have cluster DNS, as many examples rely on it.
 
 Cluster DNS is a DNS server, in addition to the other DNS server(s) in your environment, which serves DNS records for Kubernetes services.
 
 Containers started by Kubernetes automatically include this DNS server in their DNS searches.
 
-Web UI (Dashboard)
+***Web UI (Dashboard)***
 Dashboard is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage and troubleshoot applications running in the cluster, as well as the cluster itself.
 
-Container Resource Monitoring
+***Container Resource Monitoring***
 Container Resource Monitoring records generic time-series metrics about containers in a central database, and provides a UI for browsing that data.
 
