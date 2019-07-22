@@ -85,8 +85,11 @@ cloud-controller-manager allows the cloud vendor’s code and the Kubernetes cod
 ### The following controllers have cloud provider dependencies:
 
 ***Node Controller***: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+
 ***Route Controller***: For setting up routes in the underlying cloud infrastructure
+
 ***Service Controller***: For creating, updating and deleting cloud provider load balancers
+
 ***Volume Controller***: For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
 
 ## Node Components
@@ -113,15 +116,16 @@ Addons are pods and services that implement cluster features. The pods may be ma
 Selected addons are described below, for an extended list of available addons please see Addons.
 
 ***DNS***
+
 While the other addons are not strictly required, all Kubernetes clusters should have cluster DNS, as many examples rely on it.
-
 Cluster DNS is a DNS server, in addition to the other DNS server(s) in your environment, which serves DNS records for Kubernetes services.
-
 Containers started by Kubernetes automatically include this DNS server in their DNS searches.
 
 ***Web UI (Dashboard)***
+
 Dashboard is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage and troubleshoot applications running in the cluster, as well as the cluster itself.
 
 ***Container Resource Monitoring***
+
 Container Resource Monitoring records generic time-series metrics about containers in a central database, and provides a UI for browsing that data.
 
