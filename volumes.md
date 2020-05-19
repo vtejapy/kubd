@@ -1,5 +1,5 @@
 # volumes:
-- volumes in kubernetes allow you to  ** store data outside the container **
+- volumes in kubernetes allow you to  **store data outside the container**
 - when a container **stops**, all data on the container itself is **lost** 
    * that's why up until now I've been using **stateless** apps: apps that dont keep a **local** state , but store their state in an **external service**
    *  external service like a database, caching server (eg: MySQL,AWS,S3)
